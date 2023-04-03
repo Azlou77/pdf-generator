@@ -1,25 +1,34 @@
 <?php 
 use Dompdf\Dompdf;
+use Dompdf\Options;
+
+//Connnexion to the database
+require_once 'includes/connect.php';
+
+//SQL requests
+$sql = "SELECT * FROM `users` ";
+$query= $db->query($sql);
+$users = $query->fetchAll();
+
+require_once 'pdf-content.php';
+die;
+//Start the buffer, no data send to the browser except the headers
+ob_start();
+require_once 'pdf-content.php';
+$html = ob_get_clean();
+ob_end_clean();
+
+require_once 'vendor/autoload.php';
 
 
-//Database connection
-require_once 'connect.php';
-$sql = "SELECT * FROM users";
-$query= $db -> query($sql);
-$users = $query -> fetchAll(PDO::FETCH_ASSOC);
-var_dump($users);
-
-
-require_once 'dompdf/autoload.inc.php';
-
-//Instanciate the class
-$dompdf = new Dompdf();
 
 //Make custom options
 $options = new Options();
 //Set the default font
 $options->set('defaultFont', 'Courier');
 
+//Instanciate the class
+$dompdf = new Dompdf();
 //Load HTML content
 $dompdf->loadHtml('Hello World');
 //Changement size/position for the paper
@@ -28,4 +37,6 @@ $dompdf->setPaper('A4', 'landscape');
 $dompdf->render();
 $dompdf->stream("sample.pdf", array("Attachment" => false));
 
+$fichier = 'sample.pdf';
+$dompdf->stream($fichier);
 ?>

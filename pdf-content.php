@@ -1,16 +1,3 @@
-<?php
-//Connnexion to the database
-require_once 'includes/connect.php';
-
-//SQL requests
-$sql = "SELECT * FROM users where username = 'admin' and password = 'admin' ";
-$requete= $db -> query($sql);
-$users = $requete -> fetchAll(PDO::FETCH_ASSOC); 
-
-
-include 'includes/header.php';
-include 'includes/footer.php';
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,17 +26,15 @@ include 'includes/footer.php';
             <!-- Loop through the users -->
             <?php foreach ($users as $user) : ?>
                 <tr>
-                    <td><?php echo $user['id']; ?></td>
-                    <td><?php echo $user['name']; ?></td>
-                    <td><?php echo $user['email']; ?></td>
+                    <td><?= $user['id']; ?></td>
+                    <td><?= $user['name']; ?></td>
+                    <td><?= $user['email']; ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>     
     </table>
 
 
-<?php
-include 'includes/footer.php';
-?>
+
 </body>
 </html>
