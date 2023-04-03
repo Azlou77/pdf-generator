@@ -3,6 +3,20 @@
 <head>
 <meta charset="utf-8">
 <title>PDF Content</title>
+<style>
+    table{
+        width: 100%;
+    }
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 5px;
+        text-align: left;
+    }
+</style>
+
 
 <!-- Bootstraps assets -->
 <!-- Bootstraps styles -->
