@@ -52,11 +52,21 @@ if (isset($_POST['submit']))
     //Destination of the file
     $fileDestination = 'uploads/'.$fileName;
     $resultat = move_uploaded_file($tmpName, $fileDestination);
+    ?>
 
-    // Check the uploading results
+    <?php
+    //Check the uploading results
     if ($resultat)
     {
-      echo "Le fichier a bien été uploadé";
+        ?>
+        <div class="alert alert-success" role="alert">
+        <?php echo "Vous avez bien télécharger votre fichier"; ?>
+      </div>
+    <?php
+    unset($_SESSION['error']);
+      
+        header("Location: index.php?uploadsuccess");
+     
     }
     else
     {
