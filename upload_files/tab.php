@@ -1,3 +1,4 @@
+
 <!-- Display data on tab -->
 <!DOCTYPE html>
 <html lang="en">
@@ -17,21 +18,23 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
+        <th>Name</th>
         <th>Email</th>
         <th>Files</th>
       </tr>
     </thead>
     <tbody>
         <!-- Loop through the users -->
-        <?php foreach ($users as $user) : ?>
-            <tr>
-                <td><?= $user['id']; ?></td>
-                <td><?= $user['name']; ?></td>
-                <td><?= $user['email']; ?></td>
-                <td><?= $user['files']; ?></td>
-            </tr>
+        <?php foreach ($users as $user)?> {
+             <tr>
+             <td><?= $user['name']; ?></td>
+             <td><?= $user['email']; ?></td>
+             <td><?= $user['files']; ?></td>
+         </tr>
+
+        }
+        
+           
     </tbody>
 
   </table>

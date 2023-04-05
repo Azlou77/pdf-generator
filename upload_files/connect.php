@@ -22,9 +22,4 @@ catch (PDOException $e)
 }
 echo 'Connection successful';
 
-
-
-
-
-
 ?>

@@ -1,4 +1,20 @@
-<!DOCTYPE html>
+<?php 
+require (__DIR__ . './connect.php');
+
+//Add data to the database
+$sql = "INSERT INTO `users` (`name`, `email`, `files`) VALUES (:name, :email)";
+
+//Prepare the query
+$query = $db->prepare($sql);
+//Bind the parameters
+$query->bindParam(':name', $name, PDO::PARAM_STR);
+$query->bindParam(':email', $email, PDO::PARAM_STR);
+$query->bindParam(':files', $files, PDO::PARAM_STR);
+//Execute the query
+$query->execute();
+
+?>
+
 <html>
 <body>
 
@@ -22,3 +38,13 @@
   
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
