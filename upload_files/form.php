@@ -4,6 +4,12 @@
 
 <!--Methode post to upload file -->
 <form action="upload.php" method="post" enctype="multipart/form-data">
+  <label for="name">Name:</label>
+  <input type="text" name="name">
+  <br>
+  <label for="email">Email:</label>
+  <input type="text" name="email">
+  <br>
   <label for="file">Filename:</label>
   <input type="text" name="filename">
   <br>

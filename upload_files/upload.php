@@ -46,9 +46,9 @@ if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $target_file)) {
           Voici plus d'informations :\n";
 }
 
-//Helps to debug
+//  Helps to debug
 echo 'Voici quelques informations de débogage :';
-print_r($_FILES);
+print_r($_FILES); 
 
 echo '</pre>';
 

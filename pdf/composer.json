@@ -1,7 +1,5 @@
 {
- "require-dev": {
-    "phpunit/phpunit": "^9.5"
-},
+
     "require": {
         "dompdf/dompdf": "^2.0"
       
