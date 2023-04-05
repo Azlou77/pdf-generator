@@ -14,7 +14,7 @@ $users = $query->fetchAll(PDO::FETCH_ASSOC);
 
 
 ?>
-
+           
 <!-- Display data on tab -->
 <!DOCTYPE html>
 <html lang="en">
@@ -36,15 +36,19 @@ $users = $query->fetchAll(PDO::FETCH_ASSOC);
       <tr>
         <th>Name</th>
         <th>Email</th>
+        <th>Files</th>
  
       </tr>
     </thead>
     <tbody>
+      
         <!-- Loop through the users -->
         <?php foreach ($users as $user)?> {
              <tr>
               <td><?= $user['name']; ?></td>
               <td><?= $user['email']; ?></td>
+
+              <td><img src="uploads/<?php echo $user['files']; ?>"/></td>
               </tr>
         }
     </tbody>

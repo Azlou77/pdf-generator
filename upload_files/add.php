@@ -1,15 +1,20 @@
 <?php 
 require_once (__DIR__ . './connect.php');
+require_once (__DIR__ . './upload.php');
 
-$name = '';
-$email = '';
+
+$name = $_POST['name'];
+$email = $_POST['email'];
+$files = $_POST['files'];
+
 //Add data to the database
-$sql = "INSERT INTO `users` (`name`, `email`) VALUES (:name, :email)";
+$sql = "INSERT INTO `users` (`name`, `email`, `files`) VALUES (:name, :email, :files)";
 //Prepare the query
 $query = $db->prepare($sql);
 //Bind the parameters
 $query->bindParam(':name', $name, PDO::PARAM_STR);
 $query->bindParam(':email', $email, PDO::PARAM_STR);
+$query->bindParam(':files', $files, PDO::PARAM_STR);
 //Execute the query
 $query->execute(); 
 ?>
@@ -33,6 +38,9 @@ $query->execute();
         <label for="email">Email</label>
         <input type="text" class="form-control" name="email" id="email">
     </div>
+    <div class="form-group">
+        <label for="files">Files</label>
+        <input type="file" class="form-control" name="files" id="files">
 
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
