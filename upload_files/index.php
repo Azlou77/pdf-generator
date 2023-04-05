@@ -3,7 +3,6 @@ require_once (__DIR__ . './connect.php');
 
 $sql = 'SELECT * FROM `users`';
 
-
 // On prépare la requête
 $query = $db->prepare($sql);
 
@@ -11,7 +10,7 @@ $query = $db->prepare($sql);
 $query->execute();
 
 // On stocke le résultat dans un tableau associatif
-$result = $query->fetchAll(PDO::FETCH_ASSOC);
+$users = $query->fetchAll(PDO::FETCH_ASSOC);
 
 
 ?>
@@ -44,16 +43,11 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
         <!-- Loop through the users -->
         <?php foreach ($users as $user)?> {
              <tr>
-             <td><?= $user['name']; ?></td>
-             <td><?= $user['email']; ?></td>
-
-         </tr>
-
+              <td><?= $user['name']; ?></td>
+              <td><?= $user['email']; ?></td>
+              </tr>
         }
-        
-           
     </tbody>
-
   </table>
 </div>
 
