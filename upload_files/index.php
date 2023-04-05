@@ -1,7 +1,7 @@
 <?php
 require_once (__DIR__ . './connect.php');
 
-$sql = 'SELECT * FROM `users`';
+$sql = 'SELECT * FROM `users` ';
 
 // On prépare la requête
 $query = $db->prepare($sql);
@@ -48,7 +48,7 @@ $users = $query->fetchAll(PDO::FETCH_ASSOC);
               <td><?= $user['name']; ?></td>
               <td><?= $user['email']; ?></td>
 
-              <td><img src="uploads/<?php echo $user['files']; ?>"/></td>
+              <td><img height='100' width='100' src="uploads/<?php echo $user['files']; ?> "/></td>
               </tr>
         }
     </tbody>
